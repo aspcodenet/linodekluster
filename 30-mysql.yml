@@ -1,10 +1,16 @@
+# kubectl --kubeconfig=c:\temp\linode.yaml --namespace=yatest get pods
+# 
+# kubectl --kubeconfig=c:\temp\linode.yaml --namespace=yatest exec -it mysql-5f46cd7d5c-jz9xj sh
+# create database salary
+
+
 # INSTALLERA MYSQL
 #         vi ska ha permanent lagring av databaserna
 # ändra på staticwebserver  yagolangapi
 #                           login till git.systementor.se 
 #                           (secret)
 # hur man tar fram en prompt i en container       
-# databas-fix
+# databas-fix  MySQL - create database
 apiVersion: apps/v1
 kind: Deployment
 metadata:

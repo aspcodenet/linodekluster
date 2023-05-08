@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sitespeed
+  namespace: yatest
+  labels:
+    app: sitespeed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sitespeed
+  template:
+    metadata:
+      labels:
+        app: sitespeed
+    spec:
+      containers:
+        - name: sitespeed
+          image: ilemonrain/html5-speedtest:alpine
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: yatest
+  name: sitespeed-service
+  labels:
+    app: sitespeed
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: sitespeed
+  sessionAffinity: None

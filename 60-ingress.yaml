@@ -37,5 +37,25 @@ spec:
                 name: sitespeed-service
                 port:
                   number: 80
+    - host: "pythonhellostefan.strangled.net"
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: pythonapi-service
+                port:
+                  number: 80
+    - host: "python0515.chickenkiller.com"
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: python0515-service
+                port:
+                  number: 80
     
 

@@ -54,7 +54,7 @@ spec:
             path: "/"
             backend:
               service:
-                name: python0515-service
+                name: gosite-service
                 port:
                   number: 80
     

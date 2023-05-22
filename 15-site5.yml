@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: python0515
+  name: gosite
   namespace: yatest
   labels:
-    app: python0515
+    app: gosite
 spec:
   replicas: 7
   selector:
     matchLabels:
-      app: python0515
+      app: gosite
   template:
     metadata:
       labels:
-        app: python0515
+        app: gosite
     spec:
       containers:
-        - name: python0515
-          image: git.systementor.se/yacloud/python0515
+        - name: gosite
+          image: git.systementor.se/yacloud/gosite
           ports:
-            - containerPort: 5000
+            - containerPort: 8080
           env:
             - name: RUNENVIRONMENT
               value: Production
@@ -30,16 +30,16 @@ apiVersion: v1
 kind: Service
 metadata:
   namespace: yatest
-  name: python0515-service
+  name: gosite-service
   labels:
-    app: python0515
+    app: gosite
 spec:
   type: ClusterIP
   ports:
   - name: http
     port: 80
     protocol: TCP
-    targetPort: 5000
+    targetPort: 8080
   selector:
-    app: python0515
+    app: gosite
   sessionAffinity: None

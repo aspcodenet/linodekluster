@@ -27,16 +27,6 @@ spec:
                 name: site2-service
                 port:
                   number: 80
-    - host: "stefantest0508.crabdance.com"
-      http:
-        paths:
-          - pathType: Prefix
-            path: "/"
-            backend:
-              service:
-                name: sitespeed-service
-                port:
-                  number: 80
     - host: "pythonhellostefan.strangled.net"
       http:
         paths:

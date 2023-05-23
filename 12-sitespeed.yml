@@ -16,10 +16,15 @@ spec:
         app: sitespeed
     spec:
       containers:
-        - name: sitespeed
-          image: ilemonrain/html5-speedtest:alpine
+        - name: pythonapi
+          image: git.systementor.se/yacloud/frontend
           ports:
-            - containerPort: 80
+            - containerPort: 3000
+          env:
+            - name: RUNENVIRONMENT
+              value: Production
+      imagePullSecrets:
+      - name: regcred
 ---
 apiVersion: v1
 kind: Service
@@ -34,7 +39,7 @@ spec:
   - name: http
     port: 80
     protocol: TCP
-    targetPort: 80
+    targetPort: 3000
   selector:
     app: sitespeed
   sessionAffinity: None
